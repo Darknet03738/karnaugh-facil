@@ -1,78 +1,19 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Aprende y resuelve mapas de Karnaugh paso a paso.">
-  <title>Karnaugh Fácil</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="topbar">
-    <a class="brand" href="#">K<span>•</span>Fácil</a>
-    <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema">☾</button>
-  </header>
-
-  <main>
-    <section class="hero">
-      <p class="eyebrow">Lógica digital, sin enredos</p>
-      <h1>Entiende tu mapa.<br><em>No solo lo resuelvas.</em></h1>
-      <p>Marca los unos, observa los grupos y descubre de dónde sale cada término.</p>
-    </section>
-
-    <section class="workspace">
-      <aside class="steps" aria-label="Progreso">
-        <div class="step active"><b>1</b><span><strong>Configura</strong><small>Elige las variables</small></span></div>
-        <div class="step active"><b>2</b><span><strong>Marca</strong><small>0 → 1 → X</small></span></div>
-        <div class="step"><b>3</b><span><strong>Comprende</strong><small>Lee la solución</small></span></div>
-      </aside>
-
-      <div class="tool">
-        <section class="panel setup-panel">
-          <div>
-            <span class="label">Número de variables</span>
-            <div class="segmented" id="varPicker">
-              <button data-n="2">2</button><button data-n="3">3</button><button class="selected" data-n="4">4</button>
-            </div>
-          </div>
-          <div class="quick-actions">
-            <button id="exampleBtn" class="text-btn">✦ Ver ejemplo</button>
-            <button id="clearBtn" class="text-btn muted">Limpiar</button>
-          </div>
-        </section>
-
-        <section class="panel map-panel">
-          <div class="panel-head">
-            <div><span class="kicker">PASO 2</span><h2>Marca las salidas</h2><p>Haz clic en una celda para cambiar su valor.</p></div>
-            <div class="legend"><span><i class="dot zero"></i>0</span><span><i class="dot one"></i>1</span><span><i class="dot dc"></i>X</span></div>
-          </div>
-          <div id="mapWrap" class="map-wrap"></div>
-          <div class="input-row">
-            <label for="mintermInput">O escribe minterms</label>
-            <div><input id="mintermInput" placeholder="Ej. 0, 2, 5, 7"><button id="applyMinterms">Aplicar</button></div>
-          </div>
-        </section>
-
-        <button id="solveBtn" class="solve-btn">Mostrar solución <span>→</span></button>
-
-        <section id="results" class="results hidden" aria-live="polite">
-          <div class="result-title"><div><span class="kicker">PASO 3</span><h2>Así se simplifica</h2></div><span id="savingBadge" class="saving"></span></div>
-          <div class="answer-card">
-            <span>Resultado mínimo · SOP</span>
-            <div class="formula"><i>F</i> = <strong id="sopResult">0</strong><button id="copyBtn" aria-label="Copiar resultado">⧉</button></div>
-            <p id="readResult"></p>
-          </div>
-          <div class="result-grid">
-            <article class="explain-card"><h3>Los grupos</h3><div id="groupsList"></div></article>
-            <article class="explain-card"><h3>Otra forma útil</h3><span class="sub">Producto de sumas · POS</span><div id="posResult" class="pos-formula"></div><p class="note">Ambas expresiones producen exactamente la misma salida.</p></article>
-          </div>
-          <details class="truth-card"><summary><span><b>Tabla de verdad</b><small>Comprueba cada combinación</small></span><span>⌄</span></summary><div id="truthTable" class="table-scroll"></div></details>
-          <section class="learn-card"><span class="kicker">RECUERDA</span><h3>¿Por qué funciona?</h3><p>En cada grupo cambian algunas variables y otras permanecen iguales. Las que cambian desaparecen; las constantes forman el término simplificado. Los bordes del mapa también son vecinos.</p></section>
-        </section>
-      </div>
-    </section>
-  </main>
-  <footer>Hecho para aprender lógica digital con claridad.</footer>
-  <script src="app.js"></script>
-</body>
-</html>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Crea, convierte y aprende mapas de Karnaugh paso a paso."><title>Karnaugh Fácil · Taller completo</title><link rel="stylesheet" href="styles.css"></head>
+<body><header class="topbar"><a class="brand" href="#">K<span>•</span>Fácil</a><nav><a href="#solver">Resolver</a><a href="#learn">Aprender</a></nav><button id="themeBtn" class="icon-btn" aria-label="Cambiar tema">☾</button></header>
+<main><section class="hero"><p class="eyebrow">Taller completo de lógica digital</p><h1>Cambia cualquier dato.<br><em>Todo se conecta.</em></h1><p>Empieza por el mapa, una tabla, una expresión o una lista. Las demás vistas se actualizan contigo.</p></section>
+<section id="solver" class="app-shell"><div class="config-bar panel"><div><span class="label">Variables</span><div class="segmented" id="varPicker"><button data-n="2">2</button><button data-n="3">3</button><button class="selected" data-n="4">4</button><button data-n="5">5</button></div></div><div><span class="label">Solución en</span><div class="segmented" id="formPicker"><button class="selected" data-form="sop">SOP · agrupar 1</button><button data-form="pos">POS · agrupar 0</button></div></div><div class="quick-actions"><button id="exampleBtn" class="text-btn">✦ Ejemplo</button><button id="clearBtn" class="text-btn muted">Limpiar</button></div></div>
+<section class="input-card panel"><div class="mode-tabs" id="modeTabs" role="tablist"><button class="selected" data-mode="map">▦ <span>Mapa</span></button><button data-mode="truth">≡ <span>Tabla de verdad</span></button><button data-mode="expression">ƒ <span>Expresión</span></button><button data-mode="minterms">Σ <span>Minitérminos</span></button><button data-mode="maxterms">Π <span>Maxitérminos</span></button></div>
+<div class="mode-pane" id="pane-map"><div class="panel-head"><div><span class="kicker">ENTRADA VISUAL</span><h2>Marca las salidas</h2><p>Cada clic cambia 0 → 1 → X → 0. En cinco variables verás dos mapas enlazados.</p></div><div class="legend"><span><i class="dot zero"></i>0</span><span><i class="dot one"></i>1</span><span><i class="dot dc"></i>X</span></div></div><div id="mapWrap" class="map-wrap"></div></div>
+<div class="mode-pane hidden" id="pane-truth"><div class="panel-head"><div><span class="kicker">ENTRADA POR FILAS</span><h2>Edita la tabla de verdad</h2><p>Pulsa la salida de cualquier fila para alternar entre 0, 1 y X.</p></div></div><div id="truthEditor" class="truth-editor table-scroll"></div></div>
+<div class="mode-pane hidden" id="pane-expression"><div class="panel-head"><div><span class="kicker">ENTRADA ALGEBRAICA</span><h2>Escribe una expresión booleana</h2><p>Usa + para OR, · o * para AND y ' o ! para NOT. También puedes escribir AB + A'C.</p></div></div><div class="big-input"><label for="expressionInput">F =</label><input id="expressionInput" autocomplete="off" placeholder="A'B + AC"><button id="applyExpression">Convertir</button></div><p id="expressionError" class="error" role="alert"></p><div class="syntax-help"><code>A'B + AC</code><span>equivale a</span><code>(NOT A AND B) OR (A AND C)</code></div></div>
+<div class="mode-pane hidden" id="pane-minterms"><div class="panel-head"><div><span class="kicker">FORMA CANÓNICA SOP</span><h2>Lista de minitérminos</h2><p>Indica dónde F=1 y, opcionalmente, las condiciones indiferentes.</p></div></div><div class="list-inputs"><label>Minitérminos Σm<input id="mintermInput" placeholder="0, 2, 5, 7"></label><label>Don't care d<input id="minDcInput" placeholder="8, 10"></label><button id="applyMinterms">Aplicar lista</button></div></div>
+<div class="mode-pane hidden" id="pane-maxterms"><div class="panel-head"><div><span class="kicker">FORMA CANÓNICA POS</span><h2>Lista de maxitérminos</h2><p>Indica dónde F=0 y, opcionalmente, las condiciones indiferentes.</p></div></div><div class="list-inputs"><label>Maxitérminos ΠM<input id="maxtermInput" placeholder="1, 3, 4, 6"></label><label>Don't care d<input id="maxDcInput" placeholder="8, 10"></label><button id="applyMaxterms">Aplicar lista</button></div></div></section>
+<div class="sync-strip"><span>↻</span><p><b>Todo está sincronizado.</b> Cambiar una celda, fila o lista actualiza las demás representaciones.</p></div><button id="solveBtn" class="solve-btn">Simplificar y explicar <span>→</span></button>
+<section id="results" class="results hidden" aria-live="polite"><div class="result-title"><div><span class="kicker">SOLUCIÓN</span><h2>Del problema al circuito</h2></div><div><button id="copyBtn" class="small-btn">Copiar</button><button id="printBtn" class="small-btn">Imprimir / PDF</button></div></div><div class="answer-card"><span id="answerLabel">Resultado mínimo · SOP</span><div class="formula"><i>F</i> = <strong id="mainResult">0</strong></div><p id="readResult"></p></div>
+<div class="canonical-grid"><article><span>Forma canónica SOP</span><code id="canonicalSop"></code></article><article><span>Forma canónica POS</span><code id="canonicalPos"></code></article><article><span>Don't care</span><code id="canonicalDc"></code></article></div>
+<div class="result-grid"><article class="explain-card"><div class="card-title"><h3>Agrupaciones óptimas</h3><button id="toggleGroups" class="small-btn">Ocultar</button></div><div id="groupsList"></div></article><article class="explain-card"><h3>Las dos formas mínimas</h3><span class="sub">SUMA DE PRODUCTOS · SOP</span><div id="sopResult" class="pos-formula"></div><span class="sub">PRODUCTO DE SUMAS · POS</span><div id="posResult" class="pos-formula"></div><p class="note">Son equivalentes; elige según las compuertas disponibles.</p></article></div>
+<article class="explain-card circuit-card"><div><span class="kicker">IMPLEMENTACIÓN</span><h3 id="circuitTitle">Circuito de compuertas</h3><p id="circuitNote" class="note"></p></div><div id="circuitDiagram" class="circuit"></div></article><details class="truth-card"><summary><span><b>Tabla de verdad final</b><small>Comprueba cada combinación</small></span><span>⌄</span></summary><div id="truthTable" class="table-scroll"></div></details><section class="learn-card"><span class="kicker">PASO A PASO</span><h3>¿Por qué desaparecen variables?</h3><p id="whyText"></p></section></section></section>
+<section id="learn" class="study-section"><div class="study-head"><p class="eyebrow">De la guía de estudio</p><h2>Aprende mientras practicas</h2><p>Los conceptos, errores y comprobaciones del documento están aquí para consultarlos sin abandonar la herramienta.</p></div><div class="rule-card"><b>La regla de oro</b><p>Agrupa en rectángulos de 1, 2, 4, 8 o 16 celdas. Haz cada grupo tan grande como sea posible y usa la menor cantidad que cubra todo.</p></div>
+<div class="study-grid"><details open><summary>1. Orden Gray y adyacencia</summary><p>El orden es <b>00, 01, 11, 10</b>. Izquierda y derecha, arriba y abajo, y las cuatro esquinas también son adyacentes.</p></details><details><summary>2. Cómo leer un grupo</summary><p>Una variable que cambia se elimina. En SOP, una constante 1 queda directa y una constante 0 negada. En POS ocurre al revés.</p></details><details><summary>3. Don't Care (X)</summary><p>Usa una X como 0 o 1 solo si permite agrandar o ahorrar un grupo. Nunca formes un grupo únicamente con X.</p></details><details><summary>4. SOP, POS y circuitos</summary><p>SOP agrupa unos: AND–OR o NAND–NAND. POS agrupa ceros: OR–AND o NOR–NOR.</p></details></div>
+<div class="study-columns"><article class="mistakes"><h3>Errores frecuentes</h3><ul><li>Usar orden binario en vez de Gray.</li><li>Formar grupos de 3, 5 o 6 celdas.</li><li>Agrupar en diagonal.</li><li>Olvidar bordes y esquinas.</li><li>Dejar grupos redundantes.</li><li>Hacer grupos formados solo por X.</li></ul></article><article class="checklist"><h3>Checklist antes de entregar</h3><label><input type="checkbox"> Todos los valores están cubiertos.</label><label><input type="checkbox"> Los grupos son rectangulares y potencia de 2.</label><label><input type="checkbox"> Cada grupo es lo más grande posible.</label><label><input type="checkbox"> No sobra ningún grupo.</label><label><input type="checkbox"> Comprobé la expresión con dos filas.</label></article></div></section></main>
+<footer>Basado en la guía “Mapas de Karnaugh: de los fundamentos a los casos con Don't Care”.</footer><script src="app.js"></script></body></html>
