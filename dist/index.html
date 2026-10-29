@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Aprende y resuelve mapas de Karnaugh paso a paso.">
+  <title>Karnaugh Fácil</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">K<span>•</span>Fácil</a>
+    <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema">☾</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Lógica digital, sin enredos</p>
+      <h1>Entiende tu mapa.<br><em>No solo lo resuelvas.</em></h1>
+      <p>Marca los unos, observa los grupos y descubre de dónde sale cada término.</p>
+    </section>
+
+    <section class="workspace">
+      <aside class="steps" aria-label="Progreso">
+        <div class="step active"><b>1</b><span><strong>Configura</strong><small>Elige las variables</small></span></div>
+        <div class="step active"><b>2</b><span><strong>Marca</strong><small>0 → 1 → X</small></span></div>
+        <div class="step"><b>3</b><span><strong>Comprende</strong><small>Lee la solución</small></span></div>
+      </aside>
+
+      <div class="tool">
+        <section class="panel setup-panel">
+          <div>
+            <span class="label">Número de variables</span>
+            <div class="segmented" id="varPicker">
+              <button data-n="2">2</button><button data-n="3">3</button><button class="selected" data-n="4">4</button>
+            </div>
+          </div>
+          <div class="quick-actions">
+            <button id="exampleBtn" class="text-btn">✦ Ver ejemplo</button>
+            <button id="clearBtn" class="text-btn muted">Limpiar</button>
+          </div>
+        </section>
+
+        <section class="panel map-panel">
+          <div class="panel-head">
+            <div><span class="kicker">PASO 2</span><h2>Marca las salidas</h2><p>Haz clic en una celda para cambiar su valor.</p></div>
+            <div class="legend"><span><i class="dot zero"></i>0</span><span><i class="dot one"></i>1</span><span><i class="dot dc"></i>X</span></div>
+          </div>
+          <div id="mapWrap" class="map-wrap"></div>
+          <div class="input-row">
+            <label for="mintermInput">O escribe minterms</label>
+            <div><input id="mintermInput" placeholder="Ej. 0, 2, 5, 7"><button id="applyMinterms">Aplicar</button></div>
+          </div>
+        </section>
+
+        <button id="solveBtn" class="solve-btn">Mostrar solución <span>→</span></button>
+
+        <section id="results" class="results hidden" aria-live="polite">
+          <div class="result-title"><div><span class="kicker">PASO 3</span><h2>Así se simplifica</h2></div><span id="savingBadge" class="saving"></span></div>
+          <div class="answer-card">
+            <span>Resultado mínimo · SOP</span>
+            <div class="formula"><i>F</i> = <strong id="sopResult">0</strong><button id="copyBtn" aria-label="Copiar resultado">⧉</button></div>
+            <p id="readResult"></p>
+          </div>
+          <div class="result-grid">
+            <article class="explain-card"><h3>Los grupos</h3><div id="groupsList"></div></article>
+            <article class="explain-card"><h3>Otra forma útil</h3><span class="sub">Producto de sumas · POS</span><div id="posResult" class="pos-formula"></div><p class="note">Ambas expresiones producen exactamente la misma salida.</p></article>
+          </div>
+          <details class="truth-card"><summary><span><b>Tabla de verdad</b><small>Comprueba cada combinación</small></span><span>⌄</span></summary><div id="truthTable" class="table-scroll"></div></details>
+          <section class="learn-card"><span class="kicker">RECUERDA</span><h3>¿Por qué funciona?</h3><p>En cada grupo cambian algunas variables y otras permanecen iguales. Las que cambian desaparecen; las constantes forman el término simplificado. Los bordes del mapa también son vecinos.</p></section>
+        </section>
+      </div>
+    </section>
+  </main>
+  <footer>Hecho para aprender lógica digital con claridad.</footer>
+  <script src="app.js"></script>
+</body>
+</html>
