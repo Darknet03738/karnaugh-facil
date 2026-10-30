@@ -11,6 +11,8 @@ Herramienta web educativa para crear, convertir y simplificar mapas de Karnaugh 
 - Agrupaciones explicadas paso a paso.
 - Formas canónicas y tabla de verdad.
 - Diagramas de circuitos AND–OR, NAND–NAND, OR–AND y NOR–NOR.
+- Conversión automática de la expresión mínima a Ladder (LD/KOP) y FBD (FUP/BDF).
+- Contactos NA/NC, conexiones en serie/paralelo y bloques AND/OR explicados.
 - Guía de estudio, errores frecuentes y checklist.
 - Diseño adaptable a computadores y móviles.
 
