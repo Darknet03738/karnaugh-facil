@@ -8,6 +8,7 @@ Herramienta web educativa para crear, convertir y simplificar mapas de Karnaugh 
 - Edición desde mapa, tabla de verdad, expresión booleana, minitérminos o maxitérminos.
 - Varias salidas independientes dentro de una misma tabla de verdad.
 - Pestañas para añadir, renombrar, editar y resolver cada salida por separado.
+- Cálculo simultáneo de todas las salidas con un resumen de sus funciones mínimas.
 - Nombres personalizados para las entradas, propagados al mapa, fórmulas, circuitos, Ladder y FBD.
 - Valores `0`, `1` y condiciones *don't care* (`X`).
 - Simplificación en SOP y POS.
