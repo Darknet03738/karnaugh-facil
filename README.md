@@ -6,6 +6,8 @@ Herramienta web educativa para crear, convertir y simplificar mapas de Karnaugh 
 
 - Mapas de 2, 3, 4 y 5 variables.
 - Edición desde mapa, tabla de verdad, expresión booleana, minitérminos o maxitérminos.
+- Varias salidas independientes dentro de una misma tabla de verdad.
+- Pestañas para añadir, renombrar, editar y resolver cada salida por separado.
 - Valores `0`, `1` y condiciones *don't care* (`X`).
 - Simplificación en SOP y POS.
 - Agrupaciones explicadas paso a paso.
